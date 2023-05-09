@@ -57,7 +57,7 @@ class ViewController: UIViewController {
         let entity = try! ModelEntity.loadModel(named: entityName)
         
         entity.generateCollisionShapes(recursive: true)
-        arView.installGestures([.rotation, .translation], for: entity)
+        arView.installGestures([.rotation, .translation, .scale], for: entity)
         
         let anchorEntity = AnchorEntity(anchor: anchor)
         anchorEntity.addChild(entity)
