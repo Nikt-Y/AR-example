@@ -13,6 +13,7 @@
 		72F346D12A0A9751001108E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72F346CF2A0A9751001108E3 /* Main.storyboard */; };
 		72F346D32A0A9751001108E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72F346D22A0A9751001108E3 /* Assets.xcassets */; };
 		72F346D62A0A9751001108E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72F346D42A0A9751001108E3 /* LaunchScreen.storyboard */; };
+		72F346E02A0AAA1D001108E3 /* Turtle.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 72F346DF2A0AAA1D001108E3 /* Turtle.usdz */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		72F346D02A0A9751001108E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		72F346D22A0A9751001108E3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		72F346D52A0A9751001108E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		72F346DF2A0AAA1D001108E3 /* Turtle.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Turtle.usdz; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 		72F346C82A0A9751001108E3 /* AR example */ = {
 			isa = PBXGroup;
 			children = (
+				72F346DC2A0AA718001108E3 /* Models */,
 				72F346C92A0A9751001108E3 /* AppDelegate.swift */,
 				72F346CB2A0A9751001108E3 /* ViewController.swift */,
 				72F346CD2A0A9751001108E3 /* Experience.rcproject */,
@@ -63,6 +66,14 @@
 				72F346D42A0A9751001108E3 /* LaunchScreen.storyboard */,
 			);
 			path = "AR example";
+			sourceTree = "<group>";
+		};
+		72F346DC2A0AA718001108E3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				72F346DF2A0AAA1D001108E3 /* Turtle.usdz */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,6 +137,7 @@
 				72F346D62A0A9751001108E3 /* LaunchScreen.storyboard in Resources */,
 				72F346D32A0A9751001108E3 /* Assets.xcassets in Resources */,
 				72F346D12A0A9751001108E3 /* Main.storyboard in Resources */,
+				72F346E02A0AAA1D001108E3 /* Turtle.usdz in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
