@@ -5,27 +5,34 @@
 //  Created by Nik Y on 09.05.2023.
 //
 
+// Импортируем необходимые библиотеки
 import UIKit
 import RealityKit
 import ARKit
 
+// Определяем класс ViewController, который наследуется от UIViewController
 class ViewController: UIViewController {
     
+    // Создаем IBOutlet для ARView
     @IBOutlet var arView: ARView!
     
+    // Вызываем метод viewDidAppear после загрузки и отображения view
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        // Устанавливаем делегат сессии AR
         arView.session.delegate = self
         
+        // Настраиваем ARView
         setupARView()
         
-        // Создаем обработчик нажатий, который работает как "лазерная указка"
+        // Создаем обработчик нажатий, который работает как "лазерная указка",
+        // т.е. реагирует на первую попавшуюся поверхность
         arView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap(recognizer:))))
     }
     
     // MARK: Setup Methods
-    
+    // Настраиваем ARView с пользовательскими настройками
     func setupARView() {
         arView.automaticallyConfigureSession = false
         // А бывают еще конфигурации отслеживания лица, изображений и пр.
@@ -37,7 +44,7 @@ class ViewController: UIViewController {
     }
     
     // MARK: Object Placement
-    
+    // Обработка нажатия (тапа) для размещения 3D-модели на поверхности
     @objc
     func handleTap(recognizer: UITapGestureRecognizer) {
         let location = recognizer.location(in: arView)
@@ -53,6 +60,7 @@ class ViewController: UIViewController {
         }
     }
     
+    // Размещение объекта на якоре AR
     func placeObject(named entityName: String, for anchor: ARAnchor) {
         let entity = try! ModelEntity.loadModel(named: entityName)
         
@@ -65,7 +73,9 @@ class ViewController: UIViewController {
     }
 }
 
+// Расширение класса ViewController для реализации протокола ARSessionDelegate
 extension ViewController: ARSessionDelegate {
+    // Обрабатываем добавление якорей AR в сессию
     func session(_ session: ARSession, didAdd anchors: [ARAnchor]) {
         for anchor in anchors {
             if let anchorName = anchor.name, anchorName == "Turtle" {
@@ -75,15 +85,3 @@ extension ViewController: ARSessionDelegate {
     }
 }
 
-//// 3D Model
-//let sphere = MeshResource.generateSphere(radius: 0.05)
-//let material = SimpleMaterial(color: .red, roughness: 0, isMetallic: true)
-//
-//let sphereEntity = ModelEntity(mesh: sphere, materials: [material])
-//
-//// Create Anchor
-//let sphereAnchor = AnchorEntity(world: SIMD3(x: 0, y: 0, z: 0))
-//sphereAnchor.addChild(sphereEntity)
-//
-//// Add anchor to scene
-//arView.scene.addAnchor(sphereAnchor)
